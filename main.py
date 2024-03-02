@@ -303,7 +303,7 @@ if side.button("Submit"):
 
                 if file_extension in ['pdf', 'docx', 'doc','ppt', 'pptx']:
                     
-                    images_summary = pdf_docs_ppt_image(str(uploaded_file.name), file_extension)
+                    images_summary = pdf_docs_ppt_image(uploaded_file.name, file_extension)
                     if images_summary != -1:
                         image_chunks = text_to_chunks(images_summary)
                         chunks.extend(image_chunks)
