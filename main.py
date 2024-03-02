@@ -269,13 +269,8 @@ def answer(question):
     
 side = st.sidebar
 side.title("Upload your document")
-# tab1, tab2= side.tabs(["Single File", "Multiple Files"])
-# with tab1:
-    # uploaded_file = tab1.file_uploader("DOC/DOCX/PPT/PPTX/PDF/TXT", accept_multiple_files=False, type=['doc','docx','txt','ppt', 'pptx','pdf'])
-# with tab2:
-#     uploaded_file = tab2.file_uploader("DOC/DOCX/PPT/PPTX/PDF/TEX/TXT", accept_multiple_files=True, type=['doc','docx','txt','ppt', 'pptx','pdf','tex'])
-#     tab2.write("Note: If you are selecting a .tex file then the images included should also be uploaded.")
-uploaded_file = side.file_uploader("DOC/DOCX/PPT/PPTX/PDF/TXT", accept_multiple_files=False, type=['doc','docx','txt','ppt', 'pptx','pdf'])
+
+uploaded_file = side.file_uploader("DOC/DOCX/PPT/PPTX/PDF/TXT/.TEX", accept_multiple_files=False, type=['doc','docx','ppt', 'pptx','pdf', 'txt', '.tex'])
 if side.button("Submit"):
     if uploaded_file is not None:
         file_extension = uploaded_file.name.split('.')[-1]
@@ -287,12 +282,6 @@ if side.button("Submit"):
             tex_file = uploaded_file.name
             text, images = latex_to_txt(tex_file)
             chunks = text_to_chunks(text)
-
-            images_summary = image_description(images)
-            if images_summary != -1:
-                        image_chunks = text_to_chunks(images_summary)
-                        chunks.extend(image_chunks)
-
             chunk_to_FAISS(chunks, 0)
             st.success("Done")
 
@@ -303,7 +292,7 @@ if side.button("Submit"):
 
                 if file_extension in ['pdf', 'docx', 'doc','ppt', 'pptx']:
                     
-                    images_summary = pdf_docs_ppt_image(uploaded_file, file_extension)
+                    images_summary = pdf_docs_ppt_image(str(uploaded_file.name), file_extension)
                     if images_summary != -1:
                         image_chunks = text_to_chunks(images_summary)
                         chunks.extend(image_chunks)
@@ -311,7 +300,6 @@ if side.button("Submit"):
                 chunk_to_FAISS(chunks, 0)
                 st.success("Done")
 
-        
 
 io_container= st.container(height=500)
 
