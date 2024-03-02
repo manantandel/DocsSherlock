@@ -1,3 +1,4 @@
+google-ai-generativelanguage
 langchain-google-genai==0.0.9
 python-docx==0.8.11
 streamlit==1.31.1
@@ -7,9 +8,9 @@ google==3.0.0
 faiss-cpu==1.7.4
 python-dotenv==0.19.2
 python-pptx==0.6.21
-Pillow==10.0.0
+pillow==10.0.0
 PyMuPDF==1.23.26
 pylatexenc==2.10
 langchain-community==0.0.24
 libmagic==1.0
-google-ai-generativelanguage
+pip install python-dotenv==1.0.1
