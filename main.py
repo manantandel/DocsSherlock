@@ -322,8 +322,6 @@ if prompt:= io_container.chat_input("Text Sherlock..."):
 
     status = io_container.empty()
     status.text(random_element)
-
-    # Clear the text
     
     ai_answer = answer(prompt.lower())
 
