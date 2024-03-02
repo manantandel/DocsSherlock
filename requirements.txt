@@ -1,0 +1,15 @@
+langchain-google-genai==0.0.9
+python-docx==0.8.11
+streamlit==0.90.0
+PyPDF2==3.0.1
+langchain==0.1.9
+google==3.0.0
+faiss-cpu==1.7.4
+python-dotenv==0.19.2
+python-pptx==0.6.21
+Pillow==9.0.0
+PyMuPDF==1.19.0
+pylatexenc==2.10
+langchain-community==0.0.24
+libmagic==1.0
+google-ai-generativelanguage
