@@ -27,9 +27,10 @@ if "user_chat" not in st.session_state:
 if "ai_chat" not in st.session_state:
     st.session_state.ai_chat = []
 
-load_dotenv()
-os.getenv("GOOGLE_API_KEY")
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+# load_dotenv()
+# os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY='AIzaSyDsevu522w95ek6_alQ1EVbRPFFNf5D-OY'
+genai.configure(api_key=GOOGLE_API_KEY)
 
 st.set_page_config(
     page_title="Docs Sherlock",
